@@ -10,14 +10,12 @@ const Header = () => {
         <NavLink
           to="/"
           className={(navData) => (navData.isActive ? "active link" : "link")}
-          exact="true"
-        >
+          exact="true">
           Books List
         </NavLink>
         <NavLink
           to="/add"
-          className={(navData) => (navData.isActive ? "active link" : "link")}
-        >
+          className={(navData) => (navData.isActive ? "active link" : "link")}>
           Add Book
         </NavLink>
       </div>

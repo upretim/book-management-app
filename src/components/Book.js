@@ -8,6 +8,7 @@ const Book = ({
   author,
   price,
   quantity,
+  isbn,
   date,
   handleRemoveBook,
 }) => {
@@ -18,6 +19,7 @@ const Book = ({
       <Card.Body>
         <Card.Title className="book-title">{bookname}</Card.Title>
         <div className="book-details">
+          <div>ISBN: {isbn}</div>
           <div>Author: {author}</div>
           <div>Quantity: {quantity} </div>
           <div>Price: {price} </div>
