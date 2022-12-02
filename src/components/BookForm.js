@@ -22,12 +22,12 @@ const BookForm = (props) => {
     const values = [bookname, author, price, quantity];
     let errorMsg = "";
 
-    const allFieldsFilled = values.every((field) => {
+    const isFormValid = values.every((field) => {
       const value = `${field}`.trim();
       return value !== "" && value !== "0";
     });
 
-    if (allFieldsFilled) {
+    if (isFormValid) {
       const book = {
         id: uuidv4(),
         bookname,
@@ -74,15 +74,15 @@ const BookForm = (props) => {
   return (
     <div className="main-form">
       {errorMsg && <p className="errorMsg">{errorMsg}</p>}
-      <Form onSubmit={handleOnSubmit}>
+      <Form onSubmit={handleOnSubmit} className="book-form">
         <Form.Group controlId="name">
-          <Form.Label>Book Name</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             className="input-control"
             type="text"
             name="bookname"
             value={bookname}
-            placeholder="Enter name of book"
+            placeholder="Book Name"
             onChange={handleInputChange}
           />
         </Form.Group>
@@ -93,7 +93,7 @@ const BookForm = (props) => {
             type="text"
             name="author"
             value={author}
-            placeholder="Enter name of author"
+            placeholder="Author"
             onChange={handleInputChange}
           />
         </Form.Group>
@@ -104,7 +104,7 @@ const BookForm = (props) => {
             type="number"
             name="quantity"
             value={quantity}
-            placeholder="Enter available quantity"
+            placeholder="Available Quantity"
             onChange={handleInputChange}
           />
         </Form.Group>
@@ -115,7 +115,7 @@ const BookForm = (props) => {
             type="text"
             name="price"
             value={price}
-            placeholder="Enter price of book"
+            placeholder="Price"
             onChange={handleInputChange}
           />
         </Form.Group>
@@ -126,11 +126,11 @@ const BookForm = (props) => {
             type="text"
             name="isbn"
             value={isbn}
-            placeholder="Enter Book's ISBN"
+            placeholder="ISBN"
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" className="submit-btn">
+        <Button variant="success" type="submit" className="submit-btn">
           Submit
         </Button>
       </Form>

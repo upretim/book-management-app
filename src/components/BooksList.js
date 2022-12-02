@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import isEmpty from "lodash/isEmpty";
 import Book from "./Book";
 import BooksContext from "../context/BooksContext";
 
@@ -11,9 +10,9 @@ const BooksList = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <div className="book-list">
-        {!isEmpty(books) ? (
+        {books.length > 0 ? (
           books.map((book) => (
             <Book key={book.id} {...book} handleRemoveBook={handleRemoveBook} />
           ))
@@ -21,7 +20,7 @@ const BooksList = () => {
           <p className="message">No books available. Please add some books.</p>
         )}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

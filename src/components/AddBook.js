@@ -12,11 +12,7 @@ const AddBook = () => {
     history("/");
   };
 
-  return (
-    <React.Fragment>
-      {<BookForm handleOnSubmit={handleOnSubmit} />}
-    </React.Fragment>
-  );
+  return <>{<BookForm handleOnSubmit={handleOnSubmit} />}</>;
 };
 
 export default AddBook;
